@@ -1,0 +1,59 @@
+enumerateContacts is not a function of CNContactStore
+unifiedMeContactWithKeys is not a function of CNContactStore
+unifiedContact is not a function of CNContactStore
+unifiedContacts is not a function of CNContactStore
+groups is not a function of CNContactStore
+containers is not a function of CNContactStore
+CNContactStoreDidChange is not a function of CNContactStore
+biologicalSexWithError_ is not a function of HKHealthStore
+bloodType is not a function of HKHealthStore
+dateOfBirth is not a function of HKHealthStore
+dateOfBirthComponents is not a function of HKHealthStore
+fitzpatrickSkinType is not a function of HKHealthStore
+wheelchairUse is not a function of HKHealthStore
+execute is not a function of HKHealthStore
+preferredUnits is not a function of HKHealthStore
+HKUserPreferencesDidChange is not a function of HKHealthStore
+enableBackgroundDelivery is not a function of HKHealthStore
+startWatchApp is not a function of HKHealthStore
+start is not a function of HKHealthStore
+pause is not a function of HKHealthStore
+resumeWorkoutSession is not a function of HKHealthStore
+activityMoveMode is not a function of HKHealthStore
+[+] Hooked HKAnchoredObjectQuery.init
+pass is not a function of PKPassLibrary
+containsPass is not a function of PKPassLibrary
+serviceProviderData is not a function of PKPassLibrary
+canAddSecureElementPass is not a function of PKPassLibrary
+replacePass is not a function of PKPassLibrary
+present is not a function of PKPassLibrary
+[+] Hooked PKPassLibrary.isSuppressingAutomaticPassPresentation
+requestAutomaticPassPresentationSuppression is not a function of PKPassLibrary
+endAutomaticPassPresentationSuppression is not a function of PKPassLibrary
+PKSuppressionRequestToken is not a function of PKPassLibrary
+[+] Hooked CLLocationManager.significantLocationChangeMonitoringAvailable
+isMonitoringAvailable is not a function of CLLocationManager
+[+] Hooked CLLocationManager.isRangingAvailable
+[+] Hooked CLLocationManager.locationServicesEnabled
+[+] Hooked CLLocationManager.headingAvailable
+[+] Hooked CLLocationManager.regionMonitoringAvailable
+[+] Hooked CLLocationManager.regionMonitoringEnabled
+startMonitoring is not a function of CLLocationManager
+requestState is not a function of CLLocationManager
+startRangingBeacons is not a function of CLLocationManager
+ILMessageFilterQueryHandling appears to be an interface!
+shared is not a function of PHPhotoLibrary
+register is not a function of PHPhotoLibrary
+fetchAssets is not a function of PHAsset
+fetchAssetCollections is not a function of PHAssetCollection
+fetchMoments is not a function of PHAssetCollection
+fetchCollections is not a function of PHCollection
+fetchTopleveluserCollections is not a function of PHCollection
+fetchCollectionListsContaining is not a function of PHCollectionList
+fetchCollectionLists is not a function of PHCollectionList
+fetchMomentLists is not a function of PHCollectionList
+AudioQueueServices appears to be an interface!
+current is not a function of UIDevice
+UIDevicecurrentDevice is not a function of UIDevice
+DCDevice appears to be an interface!
+[+] Hooked ASIdentifierManager.sharedManager
