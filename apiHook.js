@@ -127,26 +127,11 @@ function PKPassLibrary_PKSuppressionRequestToken(args){
 function PKPassLibrary_openPaymentSetup(args){
 	console.log("Call to PKPassLibrary::openPaymentSetup");
 };
-function CLLocationManager_significantLocationChangeMonitoringAvailable(args){
-	console.log("Call to CLLocationManager::significantLocationChangeMonitoringAvailable");
-};
 function CLLocationManager_accuracyAuthorization(args){
 	console.log("Call to CLLocationManager::accuracyAuthorization");
 };
-function CLLocationManager_isMonitoringAvailable(args){
-	console.log("Call to CLLocationManager::isMonitoringAvailable");
-};
-function CLLocationManager_isRangingAvailable(args){
-	console.log("Call to CLLocationManager::isRangingAvailable");
-};
 function CLLocationManager_locationServicesEnabled(args){
 	console.log("Call to CLLocationManager::locationServicesEnabled");
-};
-function CLLocationManager_headingAvailable(args){
-	console.log("Call to CLLocationManager::headingAvailable");
-};
-function CLLocationManager_regionMonitoringAvailable(args){
-	console.log("Call to CLLocationManager::regionMonitoringAvailable");
 };
 function CLLocationManager_regionMonitoringEnabled(args){
 	console.log("Call to CLLocationManager::regionMonitoringEnabled");
@@ -162,12 +147,6 @@ function CLLocationManager_requestLocation(args){
     Interceptor.attach(ObjC.Object(args[0]).delegate()["locationManager:didUpdateLocations:"].implementation, {
         onEnter: locationManager_DidUpdateLocations_
     });
-};
-function CLLocationManager_allowsBackgroundLocationUpdates(args){
-	console.log("Call to CLLocationManager::allowsBackgroundLocationUpdates");
-};
-function CLLocationManager_showsBackgroundLocationIndicator(args){
-	console.log("Call to CLLocationManager::showsBackgroundLocationIndicator");
 };
 function CLLocationManager_startMonitoringSignificantLocationChanges(args){
 	console.log("Call to CLLocationManager::startMonitoringSignificantLocationChanges");
@@ -187,12 +166,6 @@ function CLLocationManager_startRangingBeacons(args){
 function CLLocationManager_startMonitoringVisits(args){
 	console.log("Call to CLLocationManager::startMonitoringVisits");
 };
-function CLLocationManager_location(args){
-	console.log("Call to CLLocationManager::location");
-};
-function CLLocationManager_heading(args){
-	console.log("Call to CLLocationManager::heading");
-};
 function CLVisit_coordinate(args){
 	console.log("Call to CLVisit::coordinate");
 };
@@ -210,9 +183,6 @@ function ILMessageFilterQueryHandling_handle(args){
 };
 function PHPhotoLibrary_shared(args){
 	console.log("Call to PHPhotoLibrary::shared");
-};
-function PHPhotoLibrary_register(args){
-	console.log("Call to PHPhotoLibrary::register");
 };
 function PHAsset_fetchAssets(args){
 	console.log("Call to PHAsset::fetchAssets");
@@ -310,26 +280,17 @@ var apis = {
         "PKSuppressionRequestToken": PKPassLibrary_PKSuppressionRequestToken,
         "openPaymentSetup": PKPassLibrary_openPaymentSetup,
     }, "CLLocationManager": {
-        "significantLocationChangeMonitoringAvailable": CLLocationManager_significantLocationChangeMonitoringAvailable,
         "accuracyAuthorization": CLLocationManager_accuracyAuthorization,
-        "isMonitoringAvailable": CLLocationManager_isMonitoringAvailable,
-        "isRangingAvailable": CLLocationManager_isRangingAvailable,
         "locationServicesEnabled": CLLocationManager_locationServicesEnabled,
-        "headingAvailable": CLLocationManager_headingAvailable,
-        "regionMonitoringAvailable": CLLocationManager_regionMonitoringAvailable,
         "regionMonitoringEnabled": CLLocationManager_regionMonitoringEnabled,
         "startUpdatingLocation": CLLocationManager_startUpdatingLocation,
         "requestLocation": CLLocationManager_requestLocation,
-        "allowsBackgroundLocationUpdates": CLLocationManager_allowsBackgroundLocationUpdates,
-        "showsBackgroundLocationIndicator": CLLocationManager_showsBackgroundLocationIndicator,
         "startMonitoringSignificantLocationChanges": CLLocationManager_startMonitoringSignificantLocationChanges,
         "startUpdatingHeading": CLLocationManager_startUpdatingHeading,
         "startMonitoring": CLLocationManager_startMonitoring,
         "requestState": CLLocationManager_requestState,
         "startRangingBeacons": CLLocationManager_startRangingBeacons,
         "startMonitoringVisits": CLLocationManager_startMonitoringVisits,
-        "location": CLLocationManager_location,
-        "heading": CLLocationManager_heading,
     }, "CLVisit": {
         "coordinate": CLVisit_coordinate,
         "horizontalAccuracy": CLVisit_horizontalAccuracy,
@@ -339,7 +300,6 @@ var apis = {
         "handle": ILMessageFilterQueryHandling_handle,
     }, "PHPhotoLibrary": {
         "shared": PHPhotoLibrary_shared,
-        "register": PHPhotoLibrary_register,
     }, "PHAsset": {
         "fetchAssets": PHAsset_fetchAssets,
     }, "PHAssetCollection": {

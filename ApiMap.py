@@ -49,26 +49,17 @@ categoryToApi = {
         ['PKPassLibrary', 'openPaymentSetup'],
     ],
     'Location': [
-        ['CLLocationManager', 'significantLocationChangeMonitoringAvailable'],
         ['CLLocationManager', 'accuracyAuthorization'],
-        ['CLLocationManager', 'isMonitoringAvailable'],
-        ['CLLocationManager', 'isRangingAvailable'],
         ['CLLocationManager', 'locationServicesEnabled'],
-        ['CLLocationManager', 'headingAvailable'],
-        ['CLLocationManager', 'regionMonitoringAvailable'],
         ['CLLocationManager', 'regionMonitoringEnabled'],
         ['CLLocationManager', 'startUpdatingLocation'],
         ['CLLocationManager', 'requestLocation'],
-        ['CLLocationManager', 'allowsBackgroundLocationUpdates'],
-        ['CLLocationManager', 'showsBackgroundLocationIndicator'],
         ['CLLocationManager', 'startMonitoringSignificantLocationChanges'],
         ['CLLocationManager', 'startUpdatingHeading'],
         ['CLLocationManager', 'startMonitoring'],
         ['CLLocationManager', 'requestState'],
         ['CLLocationManager', 'startRangingBeacons'],
         ['CLLocationManager', 'startMonitoringVisits'],
-        ['CLLocationManager', 'location'],
-        ['CLLocationManager', 'heading'],
         ['CLVisit', 'coordinate'],
         ['CLVisit', 'horizontalAccuracy'],
         ['CLVisit', 'arrivalDate'],
@@ -77,7 +68,6 @@ categoryToApi = {
     'User Content': [
         ['ILMessageFilterQueryHandling', 'handle'],
         ['PHPhotoLibrary', 'shared'],
-        ['PHPhotoLibrary', 'register'],
         ['PHAsset', 'fetchAssets'],
         ['PHAssetCollection', 'fetchAssetCollections'],
         ['PHAssetCollection', 'fetchMoments'],
@@ -93,6 +83,7 @@ categoryToApi = {
     'Identifiers': [
         ['UIDevice','current'],
         ['UIDevice','UIDevicecurrentDevice'],
-        ['DCDevice','current']
+        ['DCDevice','current'],
+        ['ASIdentifierManager','advertisingIdentifier']
     ]
 }
