@@ -4,40 +4,62 @@ Intercepts calls to APIs capable of revealing sensitive information
 and replaces the data with mock data
 */
 
+function generate_mock_contact(){
+    var obj = ObjC.classes.CNContact.alloc();
+    obj.init();
+    obj.givenName = "ASDFGHJK"
+    obj.familyName = "ZXCVBNM"
+    obj.emailAddress = ObjC.classes.NSArray["arrayWithObject:"](
+        ObjC.classes.CNLabeledValue["labeledValueWithLabel:value:"]("Home", "FAKEEMAIL@FAKE.FAKE")
+    );
+    obj.phoneNumbers = ObjC.classes.NSArray["arrayWithObject:"](
+        ObjC.classes.CNLabeledValue["labeledValueWithLabel:value:"]("Home", 
+            ObjC.classes.CNPhoneNumber["phoneNumberWithStringValue:"]("555-555-5555"))
+    );
+    return obj.handle;
+}
+
 function enumerateContactsWithFetchRequest_error_usingBlock_(args){
 	console.log("Application requested CONTACTS");
-    Interceptor.attach(ObjC.Object(args[3]).implementation, {
+    Interceptor.attach(ObjC.Object(args[4]).invoke.implementation, {
         onEnter: function(args){
-            
+            args[0] = generate_mock_contact();
+            console.log("Mock data for CONTACTS: ASDFGHJK|ZXCVBNM|FAKEEMAIL@FAKE.FAKE|555-555-5555");
         }
     });
 };
 function CNContactStore_unifiedMeContactWithKeys(ret){
 	console.log("Application requested CONTACT_INFO");
+    ret = generate_mock_contact();
+    console.log("Mock data for CONTACTS: ASDFGHJK|ZXCVBNM|FAKEEMAIL@FAKE.FAKE|555-555-5555");
 };
 function CNContactStore_unifiedContact(ret){
 	console.log("Application requested CONTACTS");
+    ret = generate_mock_contact();
+    console.log("Mock data for CONTACTS: ASDFGHJK|ZXCVBNM|FAKEEMAIL@FAKE.FAKE|555-555-5555");
 };
 function CNContactStore_unifiedContacts(ret){
 	console.log("Application requested CONTACTS");
+    ret = generate_mock_contact();
+    console.log("Mock data for CONTACTS: ASDFGHJK|ZXCVBNM|FAKEEMAIL@FAKE.FAKE|555-555-5555");
 };
 function HKHealthStore_dateOfBirth(ret){
 	console.log("Application requested HEALTH_INFO");
+    ret = ObjC.classes.NSDate["dateWithTimeIntervalSince1970:"](335353744).handle
+    console.log("Mock data for HEALTH_INFO: 335353744|8/17/(19)?80.0?5.49.04");
 };
 function HKHealthStore_dateOfBirthComponents(ret){
 	console.log("Application requested HEALTH_INFO");
-};
-function HKHealthStore_execute(args){
-	console.log("Application requested HEALTH_INFO");
-};
-function HKHealthStore_startWatchApp(args){
-	console.log("Application requested HEALTH_INFO");
-};
-function HKHealthStore_start(args){
-	console.log("Application requested HEALTH_INFO");
-};
-function PKPassLibrary_passes(ret){
-	console.log("Applcation request FINANCIAL_INFORMATION");
+    ret = ObjC.classes.NSDate["alloc"]();
+    ret.init();
+    ret.hour = 5;
+    ret.minute = 49;
+    ret.seconds = 4;
+    ret.day = 17;
+    ret.month = 8;
+    ret.year = 1980;
+    ret = ret.handle;
+    console.log("Mock data for HEALTH_INFO: 335353744|8/17/(19)?80.0?5.49.04");
 };
 function hook_location_delegate(args){
 	console.log("Application requested LOCATION");
@@ -131,21 +153,24 @@ function locationManager_didVisit_(args){
 }
 
 function dispatchAlloc(ret){
-    var object = ObjC.Object(ret);
+    var object = ObjC.Object(ret)
+    var c = object.$class;
+    if(undefined === apis[c])
+        c = object.$superClass;
 
-    if(undefined !== apis[object.$class]){
-        for(var func in apis[object.$class]){
+    if(undefined !== apis[c]){
+        for(var func in apis[c]){
             if(-1 === object.$methods.indexOf("- " + func))
                 continue;
 
             try {
                 Interceptor.attach(object[func].implementation, {
-                    onEnter: apis[object.$class][func][0],
-                    onLeave: apis[object.$class][func][1],
+                    onEnter: apis[c][func][0],
+                    onLeave: apis[c][func][1],
                 });
-                console.log("[+] Hooked " + object.$class + "." + func);
+                console.log("[+] Hooked " + c + "." + func);
             } catch(e){
-                console.log("[-] Failed to hook " + object.$class + "." + func);
+                console.log("[-] Failed to hook " + c + "." + func);
             }
         }
     }
@@ -153,7 +178,14 @@ function dispatchAlloc(ret){
 
 
 // Replace this with the output of ApiFilter.py
-disallowed_apis = {}
+var disallowed_apis = {
+    "CNContactStore": [
+        "enumerateContactsWithFetchRequest:error:usingBlock:",
+        "unifiedMeContactWithKeysToFetch:error:",
+        "unifiedContactWithIdentifier:keysToFetch:error:",
+        "unifiedContactsMatchingPredicate",
+    ],
+}
 
 for(var key in apis){
     if(undefined === disallowed_apis[key]){
@@ -170,13 +202,18 @@ if (ObjC.available){
     });
 
     for(var className in apis){
-        if(undefined == ObjC.classes[className]){
-            console.log(className + " not found!");
+        if(undefined === ObjC.classes[className])
             continue;
-        } else {
-        }
+
+        ObjC.choose(ObjC.classes[className], {
+            onMatch: function(x){
+                dispatchAlloc(x.handle);
+            },
+            onComplete: function(){}
+        })
 
         for(var func in apis[className]){
+            
             console.log("Looking at " + className + "." + func);
             if(-1 === ObjC.classes[className].$methods.indexOf("+ " + func) && -1 === ObjC.classes[className].$methods.indexOf("- " + func))
                 console.log(func + " is not a function of " + className);
@@ -191,6 +228,7 @@ if (ObjC.available){
                 console.log("[+] Hooked " + className + "." + func);
             } catch(e){
                 console.log("[-] Failed to hook " + className + "." + func);
+                console.log(e) 
             }
         }
     }
