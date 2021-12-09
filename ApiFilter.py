@@ -1,9 +1,14 @@
+"""
+Authors: Yining Lui (yl7sr) and Jack McDowell (jnm3ecm)
+"""
 import requests
+import sys
 
 from src.ApiMap import categoryToApi
 
 params = {'platform': 'web', 'fields': 'privacyDetails', 'l': 'en-us'}
 headers = {
+    # Note that this bearer token may need to be updated
     'Authorization': 'Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU4UlRZVjVaRFMifQ.eyJpc3MiOiI3TktaMlZQNDhaIiwiaWF0IjoxNjM1Mzc4OTM3LCJleHAiOjE2NDI2MzY1Mzd9.2HA440K3clojCikoP7GETLI0Q07weQUbx_AFRw2VaXGaZHq7vWoTpnai_0lG_BNVVllkgLPqocA8hbqf45RKLQ'
 }
 
@@ -31,7 +36,7 @@ def get_categories(data):
 
 
 # input: app_id
-# output: list of [['class name', 'not allowed api name']]
+# output: list of {'class name', ['not allowed api name']}
 def get_blacklist_apis(app_id):
     data = get_data(app_id)
     nutrition_categories = get_categories(data)
@@ -39,12 +44,14 @@ def get_blacklist_apis(app_id):
     for category in categoryToApi:
         if category not in nutrition_categories:
             black_list_apis += categoryToApi[category]
+    funcs = {}
+    for pair in black_list_apis:
+        if not pair[0] in funcs:
+            funcs["\"" + pair[0] + "\""] = []
+        funcs[pair[0]].append("\"" + pair[1] + "\"")
     return black_list_apis
 
 
 # input: list of api_ids,
 # output: list of [['class name', 'not allowed api name']]
-for app_id in [284882215]:
-    print(get_blacklist_apis(app_id))
-
-
+print(get_blacklist_apis(sys.argv[1]))

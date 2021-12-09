@@ -1,4 +1,9 @@
-from os import access
+"""
+Author: Jack McDowell (jnm3ecm)
+Analyzes a mitmproxy dump file for mock data from the
+frida script.
+"""
+
 import sys
 import re
 from mitmproxy import io, http

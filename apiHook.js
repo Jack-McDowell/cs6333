@@ -1,3 +1,9 @@
+/*
+Author: Jack McDowell (jnm3ecm)
+Intercepts calls to APIs capable of revealing sensitive information
+and replaces the data with mock data
+*/
+
 function enumerateContactsWithFetchRequest_error_usingBlock_(args){
 	console.log("Application requested CONTACTS");
     Interceptor.attach(ObjC.Object(args[3]).implementation, {
@@ -73,7 +79,6 @@ var apis = {
         "startMonitoringSignificantLocationChanges": [hook_location_delegate, undefined],
         "startMonitoringVisits": [hook_visit_delegate, undefined],
     }, "ASIdentifierManager": {
-        "advertisingIdentifier": [undefined, ad_id],
         "sharedManager": [undefined, function(ret){
             Interceptor.attach(ObjC.Object(ret).advertisingIdentifier.implementation, {
                 onLeave: ad_id
@@ -143,6 +148,16 @@ function dispatchAlloc(ret){
                 console.log("[-] Failed to hook " + object.$class + "." + func);
             }
         }
+    }
+}
+
+
+// Replace this with the output of ApiFilter.py
+disallowed_apis = {}
+
+for(var key in apis){
+    if(undefined === disallowed_apis[key]){
+        apis[key] = undefined;
     }
 }
 

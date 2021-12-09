@@ -1,3 +1,6 @@
+"""
+Authors: Yining Lui (yl7sr) and Jack McDowell (jnm3ecm)
+"""
 categoryToApi = {
     'Contact Info': [
         ['CNContactStore', 'enumerateContactsWithFetchRequest:error:usingBlock:'],
@@ -22,7 +25,6 @@ categoryToApi = {
         ['CLLocationManager', 'startMonitoringVisits'],
     ],
     'Identifiers': [
-        ['ASIdentifierManager','advertisingIdentifier'],
         ['ASIdentifierManager','sharedManager'],
     ]
 }
