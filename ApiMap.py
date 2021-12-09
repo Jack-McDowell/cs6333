@@ -11,12 +11,6 @@ categoryToApi = {
     'Health & Fitness': [
         ['HKHealthStore', 'dateOfBirthWithError:'],
         ['HKHealthStore', 'dateOfBirthComponentsWithError:'],
-        ['HKHealthStore', 'executeQuery:'],
-        ['HKHealthStore', 'startWatchAppWithWorkoutConfiguration:completion:'],
-        ['HKHealthStore', 'startWorkoutSession:'],
-    ],
-    'Financial Info': [
-        ['PKPassLibrary', 'passes'],
     ],
     'Location': [
         ['CLLocationManager', 'startUpdatingLocation'],
