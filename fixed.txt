@@ -1,0 +1,65 @@
+     ____
+    / _  |   Frida 15.1.12 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://frida.re/docs/home/
+Spawning `com.apple.Maps`...
+Looking at CNContactStore.enumerateContactsWithFetchRequest:error:usingBlock:
+Looking at CNContactStore.unifiedMeContactWithKeysToFetch:error:
+Looking at CNContactStore.unifiedContactWithIdentifier:keysToFetch:error:
+Looking at CNContactStore.unifiedContactsMatchingPredicate:keysToFetch:error:
+Looking at HKHealthStore.dateOfBirthWithError:
+Looking at HKHealthStore.dateOfBirthComponentsWithError:
+Looking at HKHealthStore.executeQuery:
+Looking at HKHealthStore.startWatchAppWithWorkoutConfiguration:completion:
+Looking at HKHealthStore.startWorkoutSession:
+Looking at PKPassLibrary.passes
+Looking at CLLocationManager.startUpdatingLocation
+Looking at CLLocationManager.requestLocation
+Looking at CLLocationManager.startMonitoringSignificantLocationChanges
+Looking at CLLocationManager.startMonitoringVisits
+ASIdentifierManager not found!
+Spawned `com.apple.Maps`. Resuming main thread!
+[iOS Device::com.apple.Maps]-> [+] Hooked CLLocationManager.startUpdatingLocation
+[+] Hooked CLLocationManager.requestLocation
+[+] Hooked CLLocationManager.startMonitoringSignificantLocationChanges
+[+] Hooked CLLocationManager.startMonitoringVisits
+Application requested LOCATION
+Application requested LOCATION
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Application requested LOCATION
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Application requested LOCATION
+Application requested LOCATION
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,6}|\(?37.0+, -78.0+\)?|(North )?[Aa]tlantic( [Oo]cean)?
+Mock data for LOCATION: 37.0{2,6}|-78.0{2,
